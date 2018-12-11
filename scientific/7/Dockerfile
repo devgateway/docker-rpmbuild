@@ -13,7 +13,7 @@ RUN groupadd --gid $GID rpm \
     --home-dir /var/rpmbuild \
     --no-log-init \
     rpm \
-  && yum -y install yum-utils rpm-build rpm-sign autoconf make cmake gcc gcc-g++ \
+  && yum -y install yum-utils rpm-build rpm-sign autoconf make cmake gcc gcc-c++ \
   && yum clean all \
   && echo '%_topdir /var/rpmbuild' >/etc/rpm/macros \
   && mkdir /var/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} \
