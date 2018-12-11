@@ -18,3 +18,7 @@ RUN groupadd --gid $GID rpm \
   && echo '%_topdir /var/rpmbuild' >/etc/rpm/macros \
   && mkdir /var/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} \
   && chown rpm:rpm /var/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+
+WORKDIR /var/rpmbuild
+
+VOLUME /var/rpmbuild
