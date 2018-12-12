@@ -18,7 +18,7 @@ pipeline {
           steps {
             script {
               docker.withRegistry('', 'dockerhub-ssemenukha') {
-                docker.build("$TAG").push()
+                docker.build("$TAG", '-f scientific/7/Dockerfile .').push()
               }
             }
           }
