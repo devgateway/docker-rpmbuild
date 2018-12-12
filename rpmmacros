@@ -1,2 +1,3 @@
 %_topdir /var/rpmbuild
-%_builddir /tmp
+%_builddir /tmp/BUILD
+%_buildrootdir /tmp/BUILDROOT
