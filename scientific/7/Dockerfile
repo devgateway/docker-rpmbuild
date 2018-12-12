@@ -20,7 +20,11 @@ RUN groupadd --gid $GID rpm \
   && chown rpm:rpm /var/rpmbuild/{RPMS,SOURCES,SPECS,SRPMS}
 
 COPY rpmmacros /etc/rpm/macros
+COPY init.sh /init.sh
 
 WORKDIR /var/rpmbuild
+
+ENTRYPOINT ["/init.sh"]
+CMD ["rpmbuild"]
 
 VOLUME /var/rpmbuild
