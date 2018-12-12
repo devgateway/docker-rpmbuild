@@ -32,6 +32,11 @@ It's recommended to mount a volume here. However, **be advised** that by default
 mounted with `noexec` flag, and scripts like `./configure` will not run. Normal volumes do not have
 such limitation.
 
+## Entry point
+
+The script will find spec files in the `SPECS` directory, install their build dependencies as root,
+and build source and binary packages as an unprivileged user.
+
 ## Copyright
 
 Copyright 2018, Development Gateway
