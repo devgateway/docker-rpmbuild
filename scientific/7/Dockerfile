@@ -4,6 +4,8 @@ FROM scientificlinux/sl:7
 ARG UID=900
 ARG GID=900
 
+COPY rpmmacros /etc/rpm/macros
+
 RUN groupadd --gid $GID rpm \
   && useradd \
     --uid $UID \
@@ -15,9 +17,8 @@ RUN groupadd --gid $GID rpm \
     rpm \
   && yum -y install yum-utils rpm-build rpm-sign autoconf make cmake gcc gcc-c++ \
   && yum clean all \
-  && echo '%_topdir /var/rpmbuild' >/etc/rpm/macros \
-  && mkdir /var/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} \
-  && chown rpm:rpm /var/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+  && mkdir /var/rpmbuild/{RPMS,SOURCES,SPECS,SRPMS} \
+  && chown rpm:rpm /var/rpmbuild/{RPMS,SOURCES,SPECS,SRPMS}
 
 WORKDIR /var/rpmbuild
 
